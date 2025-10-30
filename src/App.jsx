@@ -11,6 +11,7 @@ function Home() {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const apiKey = import.meta.env.VITE_PERPLEXITY_API_KEY;
+  const port = import.meta.env.VITE_PORT;
 
 
   const handleSubmit = async (e) => {
@@ -21,7 +22,7 @@ function Home() {
     const limit = form.limit.value;
 
     try {
-      const response = await fetch("http://localhost:8000/scrape", {
+      const response = await fetch(`${port}/scrape`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
