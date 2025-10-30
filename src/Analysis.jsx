@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 const Analysis = () => {
   const navigate = useNavigate();
   const location = useLocation();
+    const port = import.meta.env.VITE_PORT_MARKDOWN;
+
   const { analysisData } = location.state || {
     analysisData: "No data available",
   };
@@ -12,7 +14,7 @@ const Analysis = () => {
   const handleProceedMarkdown = () => {
     const encodedData = encodeURIComponent(analysisData);
     // Open a new tab with the markdown data as a query parameter
-    window.open(`http://localhost:3000?data=${encodedData}`, "_blank");
+    window.open(`${port}/?data=${encodedData}`, "_blank");
   };
   return (
     <div className="min-h-screen bg-gray-50 p-10">
