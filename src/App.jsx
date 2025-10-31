@@ -10,7 +10,7 @@ import Analysis from "./Analysis";
 function Home() {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-  const apiKey = import.meta.env.VITE_PERPLEXITY_API_KEY;
+  // const apiKey = import.meta.env.VITE_PERPLEXITY_API_KEY;
   const port = import.meta.env.VITE_PORT;
 
 
@@ -26,7 +26,6 @@ function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": apiKey,
         },
         body: JSON.stringify({
           search: type,
