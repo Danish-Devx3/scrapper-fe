@@ -47,8 +47,27 @@ const ResearchPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 flex flex-col items-center">
-      {showResultSection && <ResultSection data={resultData} />}
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Business Intelligence Report</h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Detailed analysis and insights for {place?.name || 'selected business'}
+          </p>
+        </div>
+        
+        {showResultSection && <ResultSection data={resultData} />}
+        
+        {!showResultSection && (
+          <div className="flex flex-col items-center justify-center py-20 text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-6"></div>
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">Analyzing data...</h2>
+            <p className="text-gray-500 max-w-md">
+              Processing information about {place?.name || 'the business'}. This may take a moment.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
